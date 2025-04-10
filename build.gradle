@@ -32,6 +32,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// Explicitly include the interaction events module
+	modImplementation "net.fabricmc.fabric-api:fabric-events-interaction-v0:${project.fabric_version}"
 	
 }
 
@@ -41,6 +44,13 @@ processResources {
 	filesMatching("fabric.mod.json") {
 		expand "version": inputs.properties.version
 	}
+}
+
+// Add this loom block for explicit mixin configuration
+loom {
+    mixin {
+        defaultRefmapName = "mindful-aftertaste-refmap.json"
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
