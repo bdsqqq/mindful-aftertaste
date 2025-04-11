@@ -2,7 +2,7 @@
   "required": true,
   "package": "com.bdsqqq.mindfulaftertaste.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": ["ItemMixin"],
   "injectors": {
     "defaultRequire": 1
   },

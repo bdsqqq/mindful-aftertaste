@@ -26,7 +26,5 @@
     "java": ">=21",
     "fabric-api": "*"
   },
-  "suggests": {
-    "another-mod": "*"
-  }
+  "suggests": {}
 }
