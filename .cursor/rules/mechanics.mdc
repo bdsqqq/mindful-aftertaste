@@ -1,0 +1,83 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+**Mod Overview:**  
+The Mindful Aftertaste mod overhauls Minecraft’s food, cooking, and status effects using a modular system based on food properties, aftertaste, and tiered kitchenware.  
+All additional data is handled via **Data Components** (post–1.20.5), not legacy NBT.
+
+---
+
+### **Core Systems**
+
+#### 1. **Food Properties**
+-  Foods can have custom “properties”—positive and negative—assigned as Data Components on their ItemStack.
+-  Properties originate from ingredient composition, preparation, or magical processing.
+
+#### 2. **Mindful Aftertaste**
+-  When a player eats food, they gain a persistent “aftertaste” effect based on that food’s properties.
+-  Aftertaste is implemented as a **custom status effect** (e.g., `aftertaste:regeneration`).
+-  **Aftertaste effects are unique:** They do not conflict with or replace the corresponding vanilla status effects.
+-  Aftertaste effects have effectively infinite duration and are overwritten only when the player eats another food.
+-  Only one aftertaste effect (per type) is active at a time per player.
+
+#### 3. **Meals and Rations**
+-  **Meals:** Unstackable, high-investment foods with limited durability/uses. Provide stronger bonuses due to complexity and preparation effort. Take up more inventory space.
+-  **Rations:** Stackable, generic mass-produced foods—efficient and convenient, but offer little or no bonuses.
+-  Meals are intended as late/progressive rewards; rations are for basic adventuring.
+
+---
+
+### **Tiered Kitchenware**
+
+#### **Copper Pan**
+-  Placed on any heat source.
+-  Allows combination of up to 4 ingredients into a stew, combining their properties.
+-  Player can eat out of the pan with empty hands, or get the stew into a bowl.
+
+#### **Iron Skillet**
+-  Placed on any heat source.
+-  Cooks one main food plus up to 2 additional ingredients, combining their properties with the main food.
+
+#### **Golden Goblet Blender**
+-  Magical device; lets you combine food with non-food items (e.g., metals, gems).
+-  Imbues food with properties from these non-food items, enabling “golden” and other special recipes.
+-  Only way to craft Golden carrots and Golden apples.
+
+#### **Diamond Distiller**
+-  Accepts a food item with properties (Data Components) and an empty glass bottle.
+-  Extracts **one property** from the food, produces a potion with the vanilla equivalent effect, and removes only that property’s Data Component from the food.
+-  The same food item is returned, minus the extracted property (no new “neutral” items).
+-  The process allows safe consumption of formerly dangerous foods (e.g., “removing rot” from rotten flesh).
+-  Potion yield is intentionally low (one per process, slow).
+
+#### **Netherite Soul-Vide**
+-  Endgame, slow-cooking device.
+-  Doubles all current properties of a prepared meal or food item (including negatives).
+-  Does **not** mix or add new properties—enhances only what’s present.
+-  One food item per process; considerable processing time and cost.
+
+---
+
+### **Data Handling & Effects**
+
+-  All persistent food/item effects and properties are stored as **Data Components** (MC 1.20.5+).
+-  Every aftertaste effect is a uniquely registered custom status effect (e.g., `aftertaste:regeneration`), separate from vanilla.
+-  Vanilla effects (from potions, etc.) and aftertaste effects can coexist without overwriting or interfering with each other.
+-  Potion results from the diamond distiller use the vanilla effects system; aftertaste remains exclusive to food consumption and always permanent.
+
+---
+
+### **Design Goals**
+-  No excess item or neutral food types are created.
+-  Vanilla mechanics remain relevant—no obsoleting of standard potions, foods, or devices.
+-  Kitchenware tier progression is specialized—no device replaces another; each has unique strengths and player roles.
+-  Food crafting is rewarding and flexible, but rations remain a valid fallback for simplicity.
+-  Avoid GUIs, mechanics should happen through in world interactions.
+
+---
+
+**Use these principles and mechanics as a reference for code, behavior, and feature design for the mod.**
+
+---
