@@ -5,6 +5,6 @@ import net.fabricmc.api.ClientModInitializer;
 public class MindfulaftertasteClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        System.out.println("Hello, World!");
+        System.out.println("Mindful Aftertaste Client Initialized");
     }
 }
