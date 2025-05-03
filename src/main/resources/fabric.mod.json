@@ -13,7 +13,7 @@
   "icon": "assets/mindful-aftertaste/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.bdsqqq.mindfulaftertaste.MindfulAftertaste"],
+    "main": ["com.bdsqqq.mindfulaftertaste.Mindfulaftertaste"],
     "fabric-datagen": [
       "com.bdsqqq.mindfulaftertaste.MindfulaftertasteDataGenerator"
     ],
