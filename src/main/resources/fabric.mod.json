@@ -17,7 +17,7 @@
     "fabric-datagen": [
       "com.bdsqqq.mindfulaftertaste.MindfulaftertasteDataGenerator"
     ],
-    "client": ["com.bdsqqq.mindfulaftertaste.MindfulaftertasteClient"]
+    "client": ["com.bdsqqq.mindfulaftertaste.MindfulAftertasteClient"]
   },
   "mixins": ["mindful-aftertaste.mixins.json"],
   "depends": {
