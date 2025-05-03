@@ -5,10 +5,11 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bdsqqq.mindfulaftertaste.item.MindfulaftertasteItems;
-import com.bdsqqq.mindfulaftertaste.component.MindulaftertasteComponents;
+import com.bdsqqq.mindfulaftertaste.item.MindfulAftertasteItems;
+import com.bdsqqq.mindfulaftertaste.component.MindfulAftertasteComponents;
+import com.bdsqqq.mindfulaftertaste.config.MealConfig;
 
-public class Mindfulaftertaste implements ModInitializer {
+public class MindfulAftertaste implements ModInitializer {
 	public static final String MOD_ID = "mindful-aftertaste";
 
 	// This logger is used to write text to the console and the log file.
@@ -22,7 +23,9 @@ public class Mindfulaftertaste implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		LOGGER.info("Initializing " + MOD_ID);
-		MindulaftertasteComponents.initialize(); 
-		MindfulaftertasteItems.initialize();
+		MindfulAftertasteComponents.initialize(); 
+		MindfulAftertasteItems.initialize();
+		MealConfig config = new MealConfig();
+		config.load();
 	}
 }
