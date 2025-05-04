@@ -1,6 +1,8 @@
 package com.bdsqqq.mindfulaftertaste;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
+import net.minecraft.component.DataComponentTypes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,5 +26,12 @@ public class Mindfulaftertaste implements ModInitializer {
 		LOGGER.info("Initializing " + MOD_ID);
 		MindfulaftertasteItems.initialize();
 		MindfulAftertasteComponents.initialize();
+
+		DefaultItemComponentEvents.MODIFY.register(ctx -> 
+		ctx.modify(item -> item.getComponents().contains(DataComponentTypes.FOOD), (builder, item) -> {
+			LOGGER.info("Adding MEAL_USES component to {}", item);
+			builder.add(DataComponentTypes.MAX_STACK_SIZE, 1);
+			builder.add(MindfulAftertasteComponents.MEAL_USES, 3);
+		}));
 	}
 }
