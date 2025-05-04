@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.bdsqqq.mindfulaftertaste.component.MindfulAftertasteComponents;
 import com.bdsqqq.mindfulaftertaste.item.MindfulaftertasteItems;
 
 public class Mindfulaftertaste implements ModInitializer {
@@ -22,5 +23,6 @@ public class Mindfulaftertaste implements ModInitializer {
 		// Proceed with mild caution.
 		LOGGER.info("Initializing " + MOD_ID);
 		MindfulaftertasteItems.initialize();
+		MindfulAftertasteComponents.initialize();
 	}
 }
